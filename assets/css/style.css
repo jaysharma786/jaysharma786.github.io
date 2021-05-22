@@ -1,11 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
 /*======================================
 //--//-->   STYLES GENERALES
 ======================================*/
 
 body {
-  background-color:#000000;
+  background-color: var(--dark-color);
   color: #4e4e4e;
+  /* color: white; */
+  border-radius: 4rem;
+  font-family: 'Poppins', sans-serif;
+}
+
+:root{
+  --hacker : #00ff64;
+  --dark-color : #010406;
+  --light-color : #fff;
 }
 
 h1,
@@ -23,7 +33,7 @@ a {
 }
 
 a:hover {
-  color: :#00FF64;
+  color:var(--hacker);
   text-decoration: none;
   transition: all 0.5s ease-in-out;
 }
@@ -33,7 +43,7 @@ a:hover {
 }
 
 .color-a {
-  color: :#00FF64;
+  color: var(--hacker);
 }
 
 .color-d {
@@ -84,7 +94,7 @@ a:hover {
 }
 
 .overlay-mf {
-  background-color: :#00FF64;
+  background-color: #025c26
 }
 
 .overlay-mf {
@@ -154,7 +164,7 @@ a:hover {
 .line-mf {
   width: 40px;
   height: 5px;
-  background-color: :#00FF64;
+  background-color: var(--hacker);
   margin: 0 auto;
 }
 
@@ -173,7 +183,7 @@ a:hover {
   content: '';
   position: absolute;
   height: 3px;
-  background-color: :#00FF64;
+  background-color: var(--hacker);
   width: 100px;
   bottom: -12px;
 }
@@ -187,16 +197,18 @@ a:hover {
 .box-shadow-full {
   padding: 3rem 1.25rem;
   position: relative;
-  background-color: #fff;
+  background-color: var(--dark-color);
   margin-bottom: 3rem;
   z-index: 2;
   box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.06), 0 2px 5px 0 rgba(0, 0, 0, 0.2);
+  border-top-left-radius: 2rem;
+  border-top-right-radius: 2rem;
 }
 
 /*------/ Socials /------*/
 
 .socials {
-  padding: 1.5rem 0;
+  padding: 2rem;
 }
 
 .socials ul li {
@@ -210,12 +222,12 @@ a:hover {
   border-radius: 50%;
   line-height: 1.4;
   margin: 0 15px 0 0;
-  box-shadow: 0 0 0 3px :#00FF64;
+  box-shadow: 0 0 0 3px var(--hacker);
   transition: all 500ms ease;
 }
 
 .socials .ico-circle:hover {
-  background-color: :#00FF64;
+  background-color: var(--hacker);
   color: #fff;
   box-shadow: 0 0 0 3px #000000;
   transition: all 500ms ease;
@@ -240,7 +252,7 @@ a:hover {
 }
 
 .list-ico span {
-  color: :#00FF64;
+  color: var(--hacker);
   margin-right: 10px;
 }
 
@@ -254,7 +266,7 @@ a:hover {
   line-height: 1.55;
   margin: 0 auto;
   text-align: center;
-  box-shadow: 0 0 0 10px :#00FF64;
+  box-shadow: 0 0 0 10px var(--hacker);
   display: block;
 }
 
@@ -301,7 +313,7 @@ a:hover {
   position: fixed;
   width: 42px;
   height: 42px;
-  background-color: #00ff64;
+  background-color: var(--hacker);
   opacity: .7;
   font-size: 1.6rem;
   line-height: 1.5;
@@ -320,7 +332,7 @@ a:hover {
 .back-to-top {
   position: fixed;
   display: none;
-  background: #00ff64;
+  background: var(--hacker);
   color: #fff;
   width: 44px;
   height: 44px;
@@ -358,7 +370,7 @@ a:hover {
   top: calc(50% - 30px);
   left: calc(50% - 30px);
   border: 6px solid #f2f2f2;
-  border-top: 6px solid #00ff64;
+  border-top: 6px solid var(--hacker);
   border-radius: 50%;
   width: 60px;
   height: 60px;
@@ -469,32 +481,33 @@ a:hover {
 
 .navbar-b.navbar-reduce {
   transition: all .5s ease-in-out;
-  background-color: #fff;
+  /* background-color: var(--dark-color); */
+  background-color: var(--dark-color);
   padding-top: 15px;
   padding-bottom: 15px;
 }
 
 .navbar-b.navbar-reduce .nav-link {
-  color: #00ff64;
+  color: var(--hacker);
 }
 
 .navbar-b.navbar-reduce .nav-link:before {
-  background-color: #00ff64;
+  background-color: var(--hacker);
 }
 
 .navbar-b.navbar-reduce .nav-link:hover {
-  color: #00ff64;
+  color: var(--hacker);
 }
 
 .navbar-b.navbar-reduce .show > .nav-link,
 .navbar-b.navbar-reduce .active > .nav-link,
 .navbar-b.navbar-reduce .nav-link.show,
 .navbar-b.navbar-reduce .nav-link.active {
-  color: #00ff64;
+  color: var(--hacker);
 }
 
 .navbar-b.navbar-reduce .navbar-brand {
-  color: #00ff64;
+  color: var(--hacker);
 }
 
 .navbar-b.navbar-reduce .navbar-toggler span {
@@ -526,13 +539,13 @@ a:hover {
 }
 
 .navbar-b .dropdown-menu .dropdown-item:hover {
-  background-color: #00ff64;
+  background-color: var(--hacker);
   color: #fff;
   transition: all 500ms ease;
 }
 
 .navbar-b .dropdown-menu .dropdown-item.active {
-  background-color: #00ff64;
+  background-color: var(--hacker);
 }
 
 /*--/ Hamburger Navbar /--*/
@@ -646,7 +659,7 @@ a:hover {
 
 .intro-single .breadcrumb {
   background-color: transparent;
-  color: #00ff64;
+  color: var(--hacker);
 }
 
 .intro-single .breadcrumb .breadcrumb-item:before {
@@ -664,6 +677,10 @@ a:hover {
 /*======================================
 //--//-->   ABOUT
 ======================================*/
+
+#about .container{
+  background-color: var(--dark-color);
+}
 
 .about-mf .box-shadow-full {
   padding-top: 4rem;
@@ -691,7 +708,7 @@ a:hover {
 
 .skill-mf .progress .progress-bar {
   height: .7rem;
-  background-color: #00ff64;
+  background-color: var(--hacker);
 }
 
 /*======================================
@@ -699,16 +716,17 @@ a:hover {
 ======================================*/
 
 .service-box {
-  background-color: #fff;
+  background-color: #070d11;
   padding: 2.5rem 1.3rem;
   border-radius: 1rem;
   margin-bottom: 3rem;
+  height: 25rem;
 }
 
 .service-box:hover .ico-circle {
   transition: all 500ms ease;
   color: #fff;
-  background-color: #00ff64;
+  background-color: var(--hacker);
   box-shadow: 0 0 0 10px #000000;
 }
 
@@ -766,7 +784,9 @@ a:hover {
   margin-bottom: 3rem;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
-  background-color: #fff;
+  background-color: #070d11;
+  height: 23rem;
+  border-radius: 1rem;
 }
 
 .work-box:hover img {
@@ -777,10 +797,12 @@ a:hover {
 .work-img {
   display: block;
   overflow: hidden;
+  height: 200px;
 }
 
 .work-img img {
   transition: all 1s;
+  
 }
 
 .work-content {
@@ -793,17 +815,17 @@ a:hover {
 }
 
 .work-content .w-more .w-ctegory {
-  color: #00ff64;
+  color: var(--hacker);
 }
 
 .work-content .w-like {
   font-size: 2.5rem;
-  color: #00ff64;
+  color: var(--hacker);
   float: right;
 }
 
 .work-content .w-like a {
-  color: #00ff64;
+  color: var(--hacker);
 }
 
 .work-content .w-like .num-like {
@@ -811,6 +833,7 @@ a:hover {
 }
 
 .w-title {
+  color: #cac8c8;
   font-size: 1.2rem;
 }
 
@@ -846,7 +869,7 @@ a:hover {
 
 .testimonial-box .comit {
   font-size: 2rem;
-  color: #00ff64;
+  color: var(--hacker);
   background-color: #fff;
   width: 52px;
   height: 52px;
@@ -862,6 +885,19 @@ a:hover {
 
 .card-blog .card-body {
   position: relative;
+  background-color: #070d11;
+}
+
+.card-blog {
+  margin: 1rem;
+  height: 28rem;
+  border-radius: 1rem;
+  border: none;
+  outline: none;
+}
+
+.card-footer {
+  background-color: #070d11;
 }
 
 .card-blog .card-category-box {
@@ -879,7 +915,7 @@ a:hover {
   color: #fff;
   padding: 0 15px 5px;
   overflow: hidden;
-  background-color: #00ff64;
+  background-color: var(--hacker);
   border-radius: 4px;
 }
 
@@ -905,10 +941,14 @@ a:hover {
   display: inline-block;
 }
 
+.card-footer .post-author a .author {
+  color: #cac8c8;
+}
+
 .card-blog .post-date {
   color: #4e4e4e;
   display: inline-block;
-  float: right;
+  /* float: right; */
 }
 
 /*======================================
@@ -920,7 +960,7 @@ a:hover {
 .box-comments,
 .widget-sidebar {
   padding: 2rem;
-  background-color: #fff;
+  background-color: var(--dark-color);
   margin-bottom: 3rem;
 }
 
@@ -933,7 +973,7 @@ a:hover {
 }
 
 .blog-wrapper .post-meta ul {
-  border-left: 4px solid #00ff64;
+  border-left: 4px solid var(--hacker);
   margin-top: 1rem;
 }
 
@@ -943,7 +983,7 @@ a:hover {
 }
 
 .blog-wrapper .post-meta ul a {
-  color: #00ff64;
+  color: var(--hacker);
 }
 
 .blog-wrapper .post-meta ul span {
@@ -951,7 +991,7 @@ a:hover {
 }
 
 .blog-wrapper .blockquote {
-  border-left: 4px solid #00ff64;
+  border-left: 4px solid var(--hacker);
   padding: 18px;
   font-style: italic;
 }
@@ -983,7 +1023,7 @@ a:hover {
 }
 
 .box-comments .list-comments a {
-  color: #00ff64;
+  color: var(--hacker);
 }
 
 .box-comments .list-comments span {
@@ -1000,7 +1040,7 @@ a:hover {
 .widget-sidebar .sidebar-title {
   font-size: 1.6rem;
   font-weight: 600;
-  border-left: 5px solid #00ff64;
+  border-left: 5px solid var(--hacker);
   padding-left: 15px;
   text-transform: uppercase;
   margin-bottom: 1.5rem;
@@ -1017,7 +1057,7 @@ a:hover {
   width: 10px;
   height: 1px;
   left: 0;
-  background-color: #00ff64;
+  background-color: var(--hacker);
   top: 20px;
 }
 
@@ -1028,8 +1068,8 @@ a:hover {
 }
 
 .sidebar-search .btn-search {
-  background-color: #00ff64;
-  border-color: #00ff64;
+  background-color: var(--hacker);
+  border-color: var(--hacker);
   border-radius: 0;
   padding-left: 20px;
   padding-right: 20px;
@@ -1037,7 +1077,7 @@ a:hover {
 
 .widget-tags ul li {
   display: inline-block;
-  background-color: #00ff64;
+  background-color: var(--hacker);
   padding: .2rem .6rem;
   margin-bottom: .5rem;
   border-radius: 15px;
@@ -1066,7 +1106,7 @@ a:hover {
 footer {
   text-align: center;
   color: #fff;
-  padding-bottom: 4rem;
+  padding-bottom: 1rem;
 }
 
 footer .copyright {
@@ -1078,7 +1118,14 @@ footer .credits {
 }
 
 footer .credits a {
-  color: #fff;
+  color: var(--hacker);
+}
+footer .credits a:hover {
+  color: #025c26;
+}
+
+footer  .coffee img{
+  padding-top: 1rem;
 }
 
 /*======================================
@@ -1086,8 +1133,8 @@ footer .credits a {
 ======================================*/
 
 #sendmessage {
-  color: #00ff64;
-  border: 1px solid #00ff64;
+  color: var(--hacker);
+  border: 1px solid var(--hacker);
   display: none;
   text-align: center;
   padding: 15px;
@@ -1144,13 +1191,13 @@ footer .credits a {
 }
 
 .button:hover {
-  background-color: #00ff64;
+  background-color: var(--hacker);
   color: #fff;
   transition: all 500ms ease;
 }
 
 .button-a {
-  background-color: #00ff64;
+  background-color: var(--hacker);
   color: #fff;
   border-color: #e3c5ff;
 }
