@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Reggae+One&display=swap');
 
 /*======================================
 //--//-->   STYLES GENERALES
@@ -15,7 +16,9 @@ body {
 :root{
   --hacker : #00ff64;
   --dark-color : #010406;
-  --light-color : #fff;
+  --head-color : rgb(189, 187, 187);
+  --link-color: rgb(117, 117, 117);
+  --common-content : rgb(92, 92, 92);
 }
 
 h1,
@@ -28,7 +31,7 @@ h6 {
 }
 
 a {
-  color: #1e1e1e;
+  color: var(--link-color);
   transition: all 0.5s ease-in-out;
 }
 
@@ -141,7 +144,7 @@ a:hover {
 
 .title-s {
   font-weight: 600;
-  color: #1e1e1e;
+  color: var(--head-color);
   font-size: 1.1rem;
 }
 
@@ -176,6 +179,7 @@ a:hover {
 
 .title-left {
   font-size: 2rem;
+  color: var(--head-color);
   position: relative;
 }
 
@@ -225,6 +229,8 @@ a:hover {
   box-shadow: 0 0 0 3px var(--hacker);
   transition: all 500ms ease;
 }
+
+
 
 .socials .ico-circle:hover {
   background-color: var(--hacker);
@@ -406,6 +412,7 @@ a:hover {
 //--//-->   NAVBAR
 ======================================*/
 
+
 .navbar-b {
   transition: all .5s ease-in-out;
   background-color: transparent;
@@ -487,6 +494,9 @@ a:hover {
   padding-bottom: 15px;
 }
 
+.navbar-b.navbar-reduce .nav__logo:hover {
+  color: white;
+}
 .navbar-b.navbar-reduce .nav-link {
   color: var(--hacker);
 }
@@ -603,6 +613,13 @@ a:hover {
   opacity: 0.9;
 }
 
+.container .nav__logo {
+  color: white;
+}
+.container .nav__logo:hover {
+  color: var(--hacker);
+}
+
 /*======================================
 //--//-->   INTRO
 ======================================*/
@@ -678,6 +695,14 @@ a:hover {
 //--//-->   ABOUT
 ======================================*/
 
+.common-content {
+  color: var(--common-content);
+}
+
+.lead {
+  color: var(--common-content);
+}
+
 #about .container{
   background-color: var(--dark-color);
 }
@@ -696,18 +721,20 @@ a:hover {
 }
 
 .skill-mf span {
-  color: #4e4e4e;
+  /* color: #4e4e4e; */
+  color: var(--link-color);
 }
 
 .skill-mf .progress {
-  background-color: #000;
+  background-color: rgb(46, 46, 46);
   margin: .5rem 0 1.2rem 0;
-  border-radius: 0;
+  border-radius: 1rem;
   height: .7rem;
 }
 
 .skill-mf .progress .progress-bar {
   height: .7rem;
+  border-radius: 1rem;
   background-color: var(--hacker);
 }
 
@@ -751,6 +778,17 @@ a:hover {
   color: #4e4e4e;
 }
 
+.extra-content {
+  color:var(--link-color)
+}
+
+.service-box p {
+  color: var(--common-content);
+}
+.service-box .company {
+  color: var(--link-color);
+}
+
 /*======================================
 //--//-->   COUNTER
 ======================================*/
@@ -762,6 +800,14 @@ a:hover {
 
 .counter-ico {
   margin-bottom: 1rem;
+}
+
+.counter-ico .icon {
+  color: var(--dark-color);
+}
+.counter-ico .icon:hover {
+  color: var(--hacker);
+  transition: .8s all ease-in-out;
 }
 
 .counter-ico .ico-circle {
@@ -817,6 +863,10 @@ a:hover {
 .work-content .w-more .w-ctegory {
   color: var(--hacker);
 }
+.work-content .w-date {
+  color: var(--common-content);
+}
+
 
 .work-content .w-like {
   font-size: 2.5rem;
@@ -934,7 +984,7 @@ a:hover {
 }
 
 .card-blog .card-description {
-  color: #4e4e4e;
+  color: var(--common-content);
 }
 
 .card-blog .post-author {
@@ -946,7 +996,7 @@ a:hover {
 }
 
 .card-blog .post-date {
-  color: #4e4e4e;
+  color: var(--common-content);
   display: inline-block;
   /* float: right; */
 }
