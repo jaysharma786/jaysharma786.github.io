@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap'); */
 @import url('https://fonts.googleapis.com/css2?family=Reggae+One&display=swap');
 
 /*======================================
@@ -10,7 +10,7 @@ body {
   /* color: #4e4e4e; */
   /* color: white; */
   /* border-radius: 4rem; */
-  font-family: 'Poppins', sans-serif;
+  /* font-family: 'Poppins', sans-serif; */
 }
 
 :root{
