@@ -18,7 +18,7 @@ body {
   --dark-color : #010406;
   --head-color : rgb(189, 187, 187);
   --link-color: rgb(117, 117, 117);
-  --common-content : rgb(92, 92, 92);
+  --common-content : rgb(148, 148, 148);
 }
 
 section{
@@ -1186,6 +1186,13 @@ a:hover {
   border-bottom-right-radius: 0px;
   box-shadow: none;
 }
+
+.contact-mf .more-info {
+  color: var(--common-content);
+}
+
+
+
 /*======================================
 //--//-->   FOOTER
 ======================================*/
