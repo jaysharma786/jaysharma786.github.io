@@ -1,6 +1,6 @@
 <?php
   
-  $receiving_email_address = 'Jaysharma00@protonmail.com';
+  $receiving_email_address = '';
 
   if( file_exists($php_email_form = '../assets/vendor/php-email-form/php-email-form.php' )) {
     include( $php_email_form );
