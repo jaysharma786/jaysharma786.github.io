@@ -957,7 +957,7 @@ a:hover {
 }
 
 .gradient{
-  background: linear-gradient(to right, #3de1e1 0%, #5d1cab 100%);
+  background: linear-gradient(to right, #0af945 0%, #036f42 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
