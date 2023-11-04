@@ -1,0 +1,18 @@
+{
+  "name": "sharmajijvs",
+  "version": "1.0.0",
+  "description": "Jay sharma",
+  "main": "/src/index.js",
+  "scripts": {
+    "test": "whoami"
+  },
+  "keywords": [
+    "jay",
+    "sharmajijvs",
+    "sharmaji",
+    "jay",
+    "sharma"
+  ],
+  "author": "sharmajijvs",
+  "license": "ISC"
+}
