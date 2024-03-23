@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg">
-  <sCripT type="text/javascript">
-    consOle.lOg("Hello, world!");
-  </sCrIpT>
+  <script type="text/javascript">
+    console.log("Hello, world!");
+  </script>
 </svg>
