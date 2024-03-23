@@ -1,3 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg">
-  <image xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciLz4NCiAgPGxpbmsgcmVsPSJodHRwOi8vYXBwLmV4YW1wbGUuY29tL3N2Zy9tZDUvaW1hZ2VzL3NoYXBlci9jb21tb24uZGVtIiAvPg0KPC9zdmc+" width="0" height="0"/>
+  <script type="text/javascript">
+    alert(document.domain);
+  </script>
 </svg>
