@@ -6,11 +6,7 @@
   <title>Jay Sharma | Security Engineer</title>
   <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    * {margin:0;padding:0;box-sizing:border-box;}
     body {
       font-family: 'Fira Code', monospace;
       background: black;
@@ -23,8 +19,8 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      position: relative;
       text-align: center;
+      position: relative;
     }
     header h1 {
       font-size: 3rem;
@@ -34,68 +30,18 @@
       overflow: hidden;
       border-right: 3px solid #0f0;
     }
-    header p {
-      font-size: 1.5rem;
-      color: #0ff;
-      text-shadow: 0 0 5px #0ff;
-    }
-    @keyframes typewriter {
-      from { width: 0; }
-      to { width: 100%; }
-    }
-    section {
-      padding: 60px 20px;
-      max-width: 1200px;
-      margin: auto;
-    }
-    h2 {
-      font-size: 2rem;
-      margin-bottom: 20px;
-      text-shadow: 0 0 5px #0f0;
-      border-bottom: 2px solid #0f0;
-      display: inline-block;
-    }
-    .skills, .experience, .certifications, .counters, .cves, .contact {
-      margin-top: 40px;
-    }
-    .counter {
-      display: inline-block;
-      margin: 20px;
-      font-size: 1.5rem;
-      text-align: center;
-    }
-    .progress {
-      background: rgba(0,255,0,0.2);
-      border: 1px solid #0f0;
-      height: 20px;
-      width: 100%;
-      position: relative;
-      margin-bottom: 15px;
-    }
-    .progress span {
-      display: block;
-      height: 100%;
-      background: #0f0;
-      animation: grow 2s ease-out;
-    }
-    @keyframes grow {
-      from { width: 0; }
-      to { width: var(--width); }
-    }
-    a {
-      color: #0ff;
-      text-decoration: none;
-    }
-    a:hover {
-      text-shadow: 0 0 5px #0ff;
-    }
-    /* Matrix background */
-    canvas#matrix {
-      position: fixed;
-      top: 0;
-      left: 0;
-      z-index: -1;
-    }
+    header p {font-size:1.5rem;color:#0ff;text-shadow:0 0 5px #0ff;}
+    @keyframes typewriter {from {width:0;} to {width:100%;}}
+    section {padding:60px 20px;max-width:1200px;margin:auto;}
+    h2 {font-size:2rem;margin-bottom:20px;text-shadow:0 0 5px #0f0;border-bottom:2px solid #0f0;display:inline-block;}
+    .subsection-title {color:#ff0;text-shadow:0 0 5px #ff0;}
+    .skills .progress {background:rgba(0,255,0,0.1);border:1px solid #0f0;height:20px;width:100%;margin-bottom:15px;}
+    .skills .progress span {display:block;height:100%;background:#0f0;animation:grow 2s ease-out;}
+    @keyframes grow {from{width:0;} to{width:var(--width);}}
+    .counter {display:inline-block;margin:20px;font-size:1.5rem;text-align:center;color:#ff0;text-shadow:0 0 5px #ff0;}
+    a {color:#0ff;text-decoration:none;} a:hover{text-shadow:0 0 5px #0ff;}
+    iframe {max-width:100%;border:2px solid #0f0;box-shadow:0 0 15px #0f0;}
+    canvas#matrix {position:fixed;top:0;left:0;z-index:-1;}
   </style>
 </head>
 <body>
@@ -106,7 +52,15 @@
   </header>
   <section class="about">
     <h2>About Me</h2>
-    <p>Security Engineer with 3.5+ years in Red Teaming, Web App Security, and vulnerability research. Discovered 11 CVEs, contributed to exploit DBs, and recognized by Dell, Standards, Ibotta, (ISC)², LinkedIn, UN, and more. Skilled in offensive security, detection engineering, automation, and public speaking.</p>
+    <p>Hello! I'm Jay Sharma, an IT Engineer with Honors in Cyber Security. With 3.5+ years of experience in offensive security, red teaming, and vulnerability research, I have reported 11 CVEs, contributed to public exploits, and earned 50+ appreciations with 10+ Hall of Fame entries. Recognized by Dell, Standards, Ibotta, (ISC)², LinkedIn, the United Nations, and more.</p>
+    <h3 class="subsection-title">Current Role</h3>
+    <p>Intake Analyst at HackerOne — triaging vulnerability reports, verifying impact, and ensuring secure, timely delivery to stakeholders.</p>
+    <h3 class="subsection-title">Previous Roles</h3>
+    <p>Application Security & Red Team Engineer at Qualys — vulnerability assessments, compliance audits, red team simulations, and threat detection strategies.<br>
+    Security Operations Engineer (Purple Team) at Qualys — red team ops, malware analysis, SIEM tuning, and detection engineering.</p>
+    <h3 class="subsection-title">Community Contributions</h3>
+    <p>Speaker on "Red Team Methodology" — <a href="https://youtu.be/uLLLu6IY1Vo?si=YvWstdmwujIk1QQL" target="_blank">Watch Talk</a></p>
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/uLLLu6IY1Vo" title="Red Team Methodology Talk" frameborder="0" allowfullscreen></iframe>
   </section>
   <section class="skills">
     <h2>Skills</h2>
@@ -115,31 +69,20 @@
     <div class="progress" style="--width:80%"><span></span></div>Cloud Security (AWS, Azure)
     <div class="progress" style="--width:75%"><span></span></div>Malware Analysis & Reverse Engineering
   </section>
-  <section class="experience">
-    <h2>Experience</h2>
-    <h3>Application Security & Red Team Engineer — Qualys</h3>
-    <p>Mar 2023 – Dec 2024 | Pune, India</p>
+  <section class="cves">
+    <h2>Public CVEs & Research</h2>
     <ul>
-      <li>Performed SCA, SAST, DAST, AD PenTesting, and ESAM scans</li>
-      <li>Built attack scenarios, evaluated EDR/EPP, automated security ops</li>
-    </ul>
-    <h3>Security Operations Engineer (Purple Team) — Qualys</h3>
-    <p>Mar 2022 – Mar 2023</p>
-    <ul>
-      <li>Led Red Team activities using Mythic, Caldera, Cobalt Strike</li>
-      <li>Threat hunting, SIEM tuning, malware analysis</li>
-    </ul>
-    <h3>Security Analyst (Triage) — HackerOne</h3>
-    <ul>
-      <li>Validated vulnerabilities, created triage playbooks, mentored triagers</li>
-    </ul>
-  </section>
-  <section class="certifications">
-    <h2>Certifications</h2>
-    <ul>
-      <li><a href="https://verified.elearnsecurity.com/certificates/7e4fd2df-ca0e-44e7-8f0c-32c8ec963b9a">eWPTX v2</a></li>
-      <li><a href="https://www.credential.net/783a72e2-3179-480d-92ab-5a2f7103e999#acc.KtIREb9j">CRTE</a></li>
-      <li>CRTP, MCRTA, CRTA, eJPT, MAPT, APISec, PEH</li>
+      <li><a href="https://nvd.nist.gov/vuln/detail/CVE-2023-4951">CVE-2023-4951</a> — Green Rocket Security, Auth Bypass</li>
+      <li><a href="https://nvd.nist.gov/vuln/detail/CVE-2023-38303">CVE-2023-38303</a> — Webmin XSS</li>
+      <li><a href="https://nvd.nist.gov/vuln/detail/CVE-2023-38304">CVE-2023-38304</a> — Webmin XSS</li>
+      <li><a href="https://nvd.nist.gov/vuln/detail/CVE-2023-38305">CVE-2023-38305</a> — Webmin XSS</li>
+      <li><a href="https://nvd.nist.gov/vuln/detail/CVE-2023-38306">CVE-2023-38306</a> — Webmin XSS</li>
+      <li><a href="https://nvd.nist.gov/vuln/detail/CVE-2023-38307">CVE-2023-38307</a> — Webmin XSS</li>
+      <li><a href="https://nvd.nist.gov/vuln/detail/CVE-2023-38308">CVE-2023-38308</a> — Webmin XSS</li>
+      <li><a href="https://nvd.nist.gov/vuln/detail/CVE-2023-38309">CVE-2023-38309</a> — Webmin XSS</li>
+      <li><a href="https://nvd.nist.gov/vuln/detail/CVE-2023-38310">CVE-2023-38310</a> — Webmin XSS</li>
+      <li><a href="https://nvd.nist.gov/vuln/detail/CVE-2023-38311">CVE-2023-38311</a> — Webmin XSS</li>
+      <li><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-29003">CVE-2021-29003</a> — Genexis Router RCE</li>
     </ul>
   </section>
   <section class="counters">
@@ -149,21 +92,12 @@
     <div class="counter">10+<br>Hall of Fame</div>
     <div class="counter">50+<br>Appreciations</div>
   </section>
-  <section class="cves">
-    <h2>Public CVEs & Research</h2>
-    <ul>
-      <li><a href="https://nvd.nist.gov/vuln/detail/CVE-2023-38311">Webmin CVEs (2023-38311 to 2023-38303)</a></li>
-      <li><a href="https://nvd.nist.gov/vuln/detail/CVE-2023-4951">Green Rocket Security CVE-2023-4951</a></li>
-      <li><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-29003">Genexis Platinum 4410 CVE-2021-29003</a></li>
-    </ul>
-  </section>
   <section class="contact">
     <h2>Contact</h2>
     <p>> <a href="mailto:Sharmajijvs@gmail.com">Sharmajijvs@gmail.com</a></p>
     <p>> <a href="https://www.linkedin.com/in/sharmajijvs/">LinkedIn</a> | <a href="https://github.com/jaysharma786">GitHub</a> | <a href="https://sharmajijvs.medium.com/">Medium</a></p>
   </section>
   <script>
-    // Matrix background effect
     const canvas = document.getElementById('matrix');
     const ctx = canvas.getContext('2d');
     canvas.height = window.innerHeight;
