@@ -1,706 +1,190 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="google-site-verification" content="tlDVngqr_75QobLO9ZvtAzEJix9UAFiX1Wb8Wdnx-Kk" />
-  <title>Jay Sharma — Security Engineer • Red Team • Researcher</title>
-  <meta name="description" content="Jay Sharma — Security Engineer at Qualys. Security researcher, red teamer, bug bounty hunter. CVE-2021-29003 author. eJPT, CRTP, CRTE, eWPTXv2, CRTA, MCRTA." />
-  <meta name="keywords" content="Jay Sharma, sharmajijvs, sharmaji_jvs, security engineer, red team, penetration tester, bug bounty, CVE-2021-29003" />
-
-  <!-- Favicons -->
-  <link href="assets/img/favicon.png" rel="icon" />
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon" />
-
-  <!-- Vendor CSS -->
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
-  <link href="assets/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" />
-  <link href="assets/vendor/ionicons/css/ionicons.min.css" rel="stylesheet" />
-  <link href="assets/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet" />
-  <link href="assets/vendor/venobox/venobox.css" rel="stylesheet" />
-
-  <!-- Original Theme CSS -->
-  <link href="assets/css/style.css" rel="stylesheet" />
-
-  <!-- Lordicon -->
-  <script src="https://cdn.lordicon.com//libs/frhvbuzj/lord-icon-2.0.2.js"></script>
-
-  <!-- Structured Data -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Jay Sharma",
-    "url": "https://jaysharma.tech",
-    "image": "https://jaysharma.tech/assets/img/testimonial-2.jpg",
-    "jobTitle": "Security Engineer",
-    "worksFor": {
-      "@type": "Organization",
-      "name": "Qualys"
-    },
-    "sameAs": [
-      "https://www.linkedin.com/in/sharmajijvs/",
-      "https://twitter.com/safe_mode_?s=09",
-      "https://bugcrowd.com/Sharmaji_jvs"
-    ]
-  }
-  </script>
-
-  <!-- Neon Dark Overrides -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jay Sharma | Security Engineer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&display=swap" rel="stylesheet">
   <style>
-    :root{
-      --bg:#0b0f14; /* deep space */
-      --card:#0f141b; /* dark panel */
-      --muted:#bdbbbb;
-      --accent:#00ff64; /* neon green */
-      --accent2:#34b7ff; /* neon cyan */
-      --text:#e8f1f2;
-      --glow:0 0 10px rgba(0,255,100,.35),0 0 30px rgba(0,255,100,.15);
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
-    html,body{background:var(--bg); color:var(--text);}    
-    .navbar{background:rgba(11,15,20,.6)!important; backdrop-filter: blur(10px);}    
-    .navbar a{color:var(--text)!important}
-    .navbar .nav-link.active{color:var(--accent)!important}
-    .gradient{background:linear-gradient(90deg,var(--accent),var(--accent2)); -webkit-background-clip:text; background-clip:text; color:transparent;}
-    .intro{min-height:100vh; position:relative;}
-    .overlay-itro{background:linear-gradient(180deg,rgba(11,15,20,.3),var(--bg));}
-    .intro-title{font-weight:800; text-shadow: var(--glow);}    
-    .box-shadow-full{background:var(--card); border:1px solid rgba(255,255,255,.05); box-shadow:0 20px 40px rgba(0,0,0,.35); border-radius:20px; padding:2rem;}
-    .title-a,.title-left{color:var(--accent)!important; text-shadow:var(--glow);}    
-    .line-mf{background:linear-gradient(90deg,var(--accent),var(--accent2)); height:3px; width:120px; margin: 12px auto 0; border-radius:3px;}
-    .service-box,.work-box,.counter-box{background:var(--card); border:1px solid rgba(255,255,255,.06); border-radius:18px; padding:22px; transition:transform .2s ease, box-shadow .2s ease;}
-    .service-box:hover,.work-box:hover,.counter-box:hover{transform:translateY(-6px); box-shadow:0 0 0 1px rgba(0,255,100,.25), 0 24px 50px rgba(0,0,0,.35);} 
-    .ico-circle, .socials .ico-circle{box-shadow:var(--glow);} 
-
-    /* Skills */
-    .skill-mf .progress{height:10px; background:#101821; border-radius:20px; overflow:hidden;}    
-    .skill-mf .progress-bar{background:linear-gradient(90deg,var(--accent),var(--accent2)); box-shadow:var(--glow);}    
-    .skill-item{display:flex; align-items:center; justify-content:space-between; gap:12px; margin-bottom:14px;}
-    .skill-item i{font-size:18px; color:var(--accent2);}    
-
-    /* Counters */
-    .section-counter{position:relative;}
-    .section-counter .overlay-mf{background:linear-gradient(180deg, rgba(15,20,27,.65), var(--bg));}
-    .counter{font-size:38px; font-weight:800; color:var(--accent); text-shadow:var(--glow);}    
-
-    /* CVE & Reports */
-    .list-clean{list-style:none; padding:0; margin:0;}
-    .list-clean li{padding:10px 12px; background:var(--card); border:1px solid rgba(255,255,255,.07); border-radius:12px; margin-bottom:10px;}
-    .list-clean a{color:var(--accent2); text-decoration:none;}
-    .badge-soft{background:rgba(0,255,100,.12); color:var(--accent); border:1px solid rgba(0,255,100,.35); border-radius:999px; padding:.25rem .6rem; font-size:.75rem; margin-left:8px;}
-
-    /* Footer */
-    footer{border-top:1px solid rgba(255,255,255,.08);}
-
-    /* Smooth section spacing */
-    section{scroll-margin-top:84px;}
-
-    /* Back to top */
-    .back-to-top{background:var(--accent); box-shadow:var(--glow);} 
+    body {
+      font-family: 'Fira Code', monospace;
+      background: black;
+      color: #0f0;
+      overflow-x: hidden;
+    }
+    header {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      text-align: center;
+    }
+    header h1 {
+      font-size: 3rem;
+      text-shadow: 0 0 5px #0f0, 0 0 20px #0f0;
+      animation: typewriter 4s steps(30) 1s forwards;
+      white-space: nowrap;
+      overflow: hidden;
+      border-right: 3px solid #0f0;
+    }
+    header p {
+      font-size: 1.5rem;
+      color: #0ff;
+      text-shadow: 0 0 5px #0ff;
+    }
+    @keyframes typewriter {
+      from { width: 0; }
+      to { width: 100%; }
+    }
+    section {
+      padding: 60px 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      text-shadow: 0 0 5px #0f0;
+      border-bottom: 2px solid #0f0;
+      display: inline-block;
+    }
+    .skills, .experience, .certifications, .counters, .cves, .contact {
+      margin-top: 40px;
+    }
+    .counter {
+      display: inline-block;
+      margin: 20px;
+      font-size: 1.5rem;
+      text-align: center;
+    }
+    .progress {
+      background: rgba(0,255,0,0.2);
+      border: 1px solid #0f0;
+      height: 20px;
+      width: 100%;
+      position: relative;
+      margin-bottom: 15px;
+    }
+    .progress span {
+      display: block;
+      height: 100%;
+      background: #0f0;
+      animation: grow 2s ease-out;
+    }
+    @keyframes grow {
+      from { width: 0; }
+      to { width: var(--width); }
+    }
+    a {
+      color: #0ff;
+      text-decoration: none;
+    }
+    a:hover {
+      text-shadow: 0 0 5px #0ff;
+    }
+    /* Matrix background */
+    canvas#matrix {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: -1;
+    }
   </style>
 </head>
-
-<body id="page-top">
-
-  <!-- ======= Header/ Navbar ======= -->
-  <nav class="navbar navbar-b navbar-trans navbar-expand-md fixed-top" id="mainNav">
-    <div class="container">
-      <a class="nav__logo navbar-brand js-scroll gradient" href="#home" style="font-family: 'Poppins', sans-serif; font-weight:800;">JAY SHARMA</a>
-      <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarDefault" aria-controls="navbarDefault" aria-expanded="false" aria-label="Toggle navigation">
-        <span></span><span></span><span></span>
-      </button>
-      <div class="navbar-collapse collapse justify-content-end" id="navbarDefault">
-        <ul class="navbar-nav">
-          <li class="nav-item"><a class="nav-link js-scroll active" href="#home">Home</a></li>
-          <li class="nav-item"><a class="nav-link js-scroll" href="#about">About</a></li>
-          <li class="nav-item"><a class="nav-link js-scroll" href="#skills">Skills</a></li>
-          <li class="nav-item"><a class="nav-link js-scroll" href="#Experience">Experience</a></li>
-          <li class="nav-item"><a class="nav-link js-scroll" href="#Achievements">Achievements</a></li>
-          <li class="nav-item"><a class="nav-link js-scroll" href="#reports">CVEs & Reports</a></li>
-          <li class="nav-item"><a class="nav-link js-scroll" href="#contact">Contact</a></li>
-        </ul>
-      </div>
-      <p class="pt-3 d-none d-md-block"><a class="btn btn-primary btn js-scroll px-4" href="#contact" role="button">Download CV</a></p>
-    </div>
-  </nav>
-
-  <!-- ======= Intro Section ======= -->
-  <div id="home" class="intro route bg-image" style="background-image: url(assets/img/intro-bg3.jpg)">
-    <div class="overlay-itro"></div>
-    <div class="intro-content display-table">
-      <div class="table-cell">
-        <div class="container text-center">
-          <h1 class="intro-title mb-3 gradient" style="font-family:'Poppins', sans-serif;">I am Jay Sharma</h1>
-          <p class="intro-subtitle" style="color:#9fe6c3;font-family:'Trebuchet MS';"><span class="text-slider-items">Security Engineer,Security Researcher,Bug Bounty Hunter,Red Team,Penetration Tester,Social Engineer,CTF Player</span><strong class="text-slider"></strong></p>
-          <div class="mt-4">
-            <a href="#about" class="btn btn-outline-light mr-2">About</a>
-            <a href="#reports" class="btn btn-success" style="box-shadow:var(--glow)"><i class="fas fa-bug mr-1"></i> CVEs & Reports</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- End Intro Section -->
-
-  <main id="main">
-
-    <!-- ======= About Section ======= -->
-    <section id="about" class="about-mf sect-pt4 route">
-      <div class="container">
-        <div class="row">
-          <div class="col-sm-12">
-            <div class="box-shadow-full">
-              <div class="row">
-                <div class="col-md-5">
-                  <div class="about-img mb-3">
-                    <img src="assets/img/testimonial-2.jpg" class="img-fluid rounded b-shadow-a" alt="Jay Sharma" />
-                  </div>
-                  <div class="about-info">
-                    <p><span class="title-s">Name: </span> <span><a href="https://www.linkedin.com/in/sharmajijvs" target="_blank">Jay Sharma</a></span></p>
-                    <p><span class="title-s">Profile: </span> <span class="common-content">Security Engineer • Researcher</span></p>
-                    <p><span class="title-s">Email: </span> <span class="common-content">daemon@duck.com</span></p>
-                    <p><span class="title-s">Phone: </span> <span class="common-content">+91 702 069 3812</span></p>
-                    <p><span class="title-s">Location: </span> <span class="common-content">Pune & Ahmednagar, Maharashtra, IN</span></p>
-                  </div>
-                </div>
-                <div class="col-md-7">
-                  <div class="about-me pt-4 pt-md-0">
-                    <div class="title-box-2 d-flex align-items-center">
-                      <lord-icon src="https://cdn.lordicon.com//nobciafz.json" trigger="loop" colors="primary:#bdbbbb,secondary:#00ff64" style="width:80px;height:80px"></lord-icon>
-                      <h5 class="title-left ml-2">About Me</h5>
-                    </div>
-                    <p class="lead">
-                      I’m a Security Engineer at <strong>Qualys</strong> with 4+ years across offensive security: red teaming, web & mobile pentesting, and vulnerability research. I’ve earned a <strong>Hall of Fame</strong> with multiple organizations and authored <strong>CVE‑2021‑29003</strong> (RCE in Genexis Platinum‑4410 routers) with an accompanying Exploit‑DB entry (EDB‑49764).
-                    </p>
-                    <p class="lead">
-                      I enjoy solving complex security problems end‑to‑end — from reconnaissance and exploit development to remediation guidance. Certifications include <strong>eJPT</strong>, <strong>CRTP</strong>, <strong>CRTE</strong>, <strong>eWPTXv2</strong>, <strong>CRTA</strong>, and <strong>MCRTA</strong>. I’m currently sharpening for <strong>OSCP</strong>.
-                    </p>
-                    <p class="lead mb-0">
-                      Beyond work, you’ll find me breaking CTFs, tinkering with hardware attacks, and mentoring newcomers to security.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- End About Section -->
-
-    <!-- ======= Skills Section ======= -->
-    <section id="skills" class="about-mf sect-pt4 route">
-      <div class="container">
-        <div class="row">
-          <div class="col-sm-12">
-            <div class="title-box text-center">
-              <h3 class="title-a">Skills</h3>
-              <p class="subtitle-a">Hands-on tooling and domains I use daily</p>
-              <div class="line-mf"></div>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-6">
-            <div class="box-shadow-full">
-              <div class="skill-mf">
-                <div class="skill-item"><span><i class="fas fa-user-secret"></i> Ethical Hacking</span><span class="pull-right">90%</span></div>
-                <div class="progress"><div class="progress-bar" style="width: 90%" aria-valuenow="90"></div></div>
-
-                <div class="skill-item"><span><i class="fas fa-spider"></i> Web & Mobile Pentesting</span><span class="pull-right">80%</span></div>
-                <div class="progress"><div class="progress-bar" style="width: 80%" aria-valuenow="80"></div></div>
-
-                <div class="skill-item"><span><i class="fas fa-network-wired"></i> Red Teaming / AD</span><span class="pull-right">75%</span></div>
-                <div class="progress"><div class="progress-bar" style="width: 75%" aria-valuenow="75"></div></div>
-
-                <div class="skill-item"><span><i class="fas fa-bug"></i> VAPT</span><span class="pull-right">90%</span></div>
-                <div class="progress"><div class="progress-bar" style="width: 90%" aria-valuenow="90"></div></div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="box-shadow-full">
-              <div class="skill-mf">
-                <div class="skill-item"><span><i class="fas fa-toolbox"></i> Burp Suite, Nmap, Metasploit, SQLMap</span><span class="pull-right">85%</span></div>
-                <div class="progress"><div class="progress-bar" style="width: 85%" aria-valuenow="85"></div></div>
-
-                <div class="skill-item"><span><i class="fas fa-cloud"></i> Cloud & Containers (Recon/Hardening)</span><span class="pull-right">65%</span></div>
-                <div class="progress"><div class="progress-bar" style="width: 65%" aria-valuenow="65"></div></div>
-
-                <div class="skill-item"><span><i class="fas fa-code"></i> Scripting (Python, Bash)</span><span class="pull-right">70%</span></div>
-                <div class="progress"><div class="progress-bar" style="width: 70%" aria-valuenow="70"></div></div>
-
-                <div class="skill-item"><span><i class="fas fa-search"></i> Social Engineering / OSINT</span><span class="pull-right">75%</span></div>
-                <div class="progress"><div class="progress-bar" style="width: 75%" aria-valuenow="75"></div></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- End Skills Section -->
-
-    <!-- ======= Experience Section ======= -->
-    <section id="Experience" class="services-mf pt-5 route">
-      <div class="container">
-        <div class="animate-icon text-center mb-2">
-          <lord-icon src="https://cdn.lordicon.com//kbtmbyzy.json" trigger="loop" colors="primary:#bdbbbb,secondary:#00ff64" style="width:100px;height:100px"></lord-icon>
-        </div>
-        <div class="row">
-          <div class="col-sm-12">
-            <div class="title-box text-center">
-              <h3 class="title-a">Experience</h3>
-              <div class="line-mf"></div>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-4">
-            <div class="service-box">
-              <div class="service-content">
-                <h2 class="company"><a href="https://www.qualys.com/" target="_blank">Qualys</a></h2>
-                <p class="position-name">Security Engineer</p>
-                <p class="mute-text">March 2022 – Present</p>
-                <p class="company-info">Vulnerability research, product security, and internal red team engagements. Built repeatable methodology for app/VAPT reviews and automation scripts in Python.</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="service-box">
-              <div class="service-content">
-                <h2 class="company"><a href="https://bugcrowd.com/Sharmaji_jvs" target="_blank">Bugcrowd</a></h2>
-                <p class="position-name">Freelance Security Researcher</p>
-                <p class="mute-text">Nov 2020 – Present</p>
-                <p class="company-info">Application security testing across web and mobile targets; numerous valid submissions and accolades.</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="service-box">
-              <div class="service-content">
-                <h2 class="company"><a href="#">Truein</a></h2>
-                <p class="position-name">Penetration Tester</p>
-                <p class="mute-text">Apr 2021 – Present</p>
-                <p class="company-info">Security reviews for face-recognition attendance platform; threat modeling and remediation guidance.</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="service-box">
-              <div class="service-content">
-                <h2 class="company"><a href="https://virtuallytesting.com/intern.html/" target="_blank">Virtually Testing Foundation</a></h2>
-                <p class="position-name">Intern — Los Angeles County, CA (Remote)</p>
-                <p class="mute-text">Jan 2021 – Mar 2021</p>
-                <p class="company-info">Hands-on learning of SDN and security; collaborated on labs and research sprints.</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="service-box">
-              <div class="service-content">
-                <h2 class="company"><a href="https://twitter.com/noidapolice/status/1293908524817293318?lang=en" target="_blank">Noida Cyber Cell</a></h2>
-                <h5 class="extra-content">Gautam Buddh Nagar Police Commissionerate</h5>
-                <p class="position-name">Intern</p>
-                <p class="mute-text">Sep 7, 2020 – Nov 7, 2020</p>
-                <p class="company-info">Training in ethical hacking & security analysis with hands-on exposure to cybercrime cases.</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="service-box">
-              <div class="service-content">
-                <h2 class="company"><a href="#">HackerOne</a></h2>
-                <p class="position-name">Freelance Researcher</p>
-                <p class="mute-text">Dec 2020 – Present</p>
-                <p class="company-info">Recon, exploitation, and coordinated disclosure across multiple private programs.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- End Experience Section -->
-
-    <!-- ======= Counter Section ======= -->
-    <div class="section-counter paralax-mf bg-image" style="background-image: url(assets/img/counters-bg.jpg)">
-      <div class="overlay-mf"></div>
-      <div class="container">
-        <div class="row">
-          <div class="col-sm-3 col-lg-3">
-            <div class="counter-box counter-box pt-4 pt-md-0 text-center">
-              <div class="counter-ico">
-                <a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-29003" target="_blank">
-                  <span class="ico-circle"><i class="icon ion-bug"></i></span>
-                </a>
-              </div>
-              <div class="counter-num">
-                <p class="counter" data-target="1">0</p>
-                <span class="counter-text" style="color:#00FF64;font-family:trebuchet ms;">CVE</span>
-              </div>
-            </div>
-          </div>
-          <div class="col-sm-3 col-lg-3">
-            <div class="counter-box pt-4 pt-md-0 text-center">
-              <div class="counter-ico">
-                <span class="ico-circle"><i class="icon ion-ios-calendar-outline"></i></span>
-              </div>
-              <div class="counter-num">
-                <p class="counter" data-target="4">0</p>
-                <span class="counter-text" style="color:#00FF64;font-family:trebuchet ms;">Years of Experience</span>
-              </div>
-            </div>
-          </div>
-          <div class="col-sm-3 col-lg-3">
-            <div class="counter-box pt-4 pt-md-0 text-center">
-              <div class="counter-ico">
-                <a href="https://www.linkedin.com/in/sharmajijvs/detail/overlay-view/urn:li:fsd_profileTreasuryMedia:(ACoAADCCy30BW62oVCPdoaBvhi6ZLcp7VzcQY_Q,1602530883965)/" target="_blank">
-                  <span class="ico-circle"><i class="icon ion-ios-people"></i></span>
-                </a>
-              </div>
-              <div class="counter-num">
-                <p class="counter" data-target="50">0</p>
-                <span class="counter-text" style="color:#00FF64;font-family:trebuchet ms;">Appreciations</span>
-              </div>
-            </div>
-          </div>
-          <div class="col-sm-3 col-lg-3">
-            <div class="counter-box pt-4 pt-md-0 text-center">
-              <div class="counter-ico">
-                <a href="https://www.linkedin.com/feed/update/urn:li:activity:6720400130782105600/" target="_blank">
-                  <span class="ico-circle"><i class="icon ion-ribbon-a"></i></span>
-                </a>
-              </div>
-              <div class="counter-num">
-                <p class="counter" data-target="13">0</p>
-                <span class="counter-text" style="color:#00FF64;font-family:trebuchet ms;">Hall of Fame</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- End Counter Section -->
-
-    <!-- ======= Certifications & Achievements ======= -->
-    <section id="Achievements" class="portfolio-mf sect-pt4 route">
-      <div class="container">
-        <div class="animate-icon text-center">
-          <lord-icon src="https://cdn.lordicon.com//iltqorsz.json" trigger="loop" colors="primary:#bdbbbb,secondary:#00ff64" style="width:100px;height:100px"></lord-icon>
-        </div>
-        <div class="row">
-          <div class="col-sm-12">
-            <div class="title-box text-center">
-              <h3 class="title-a">Certifications & Achievements</h3>
-              <p class="subtitle-a">Selected highlights and badges</p>
-              <div class="line-mf"></div>
-            </div>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-md-4">
-            <div class="work-box">
-              <a href="https://www.standard.com/about-standard/responsible-disclosure-program" target="_blank" class="venobox">
-                <div class="work-img" style="object-fit: cover; overflow: hidden;">
-                  <img src="assets/img/work-1.jpg" alt="The Standard" class="img-fluid" />
-                </div>
-              </a>
-              <div class="work-content">
-                <div class="row">
-                  <div class="col-sm-8">
-                    <h2 class="w-title">THE STANDARD</h2>
-                    <div class="w-more"><span class="w-ctegory">Hall of Fame</span> / <span class="w-date">Nov 2020</span></div>
-                  </div>
-                  <div class="col-sm-4 text-right">
-                    <div class="w-like"><a href="https://www.standard.com/about-standard/responsible-disclosure-program" target="_blank"><i class="icon ion-link"></i></a></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-md-4">
-            <div class="work-box">
-              <a href="https://www.credly.com/badges/43f89872-b89c-48ab-8ba9-5a6259b7a79e/linked_in" target="_blank" class="venobox">
-                <div class="work-img">
-                  <img src="assets/img/work-2.jpg" alt="VTF" class="img-fluid" />
-                </div>
-              </a>
-              <div class="work-content">
-                <div class="row">
-                  <div class="col-sm-8">
-                    <h2 class="w-title">VTF</h2>
-                    <div class="w-more"><span class="w-ctegory">Badge</span> / <span class="w-date">Mar 2021</span></div>
-                  </div>
-                  <div class="col-sm-4 text-right">
-                    <div class="w-like"><a href="https://www.credly.com/badges/43f89872-b89c-48ab-8ba9-5a6259b7a79e/linked_in" target="_blank"><i class="icon ion-link"></i></a></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-md-4">
-            <div class="work-box">
-              <a href="https://quals.2020.hackasat.com/teams/965.html" target="_blank" class="venobox">
-                <div class="work-img">
-                  <img src="assets/img/work-3.png" alt="Hack-A-Sat" class="img-fluid" />
-                </div>
-              </a>
-              <div class="work-content">
-                <div class="row">
-                  <div class="col-sm-8">
-                    <h2 class="w-title">HACKASAT</h2>
-                    <div class="w-more"><span class="w-ctegory">Rank 965</span> / <span class="w-date">May 2020</span></div>
-                  </div>
-                  <div class="col-sm-4 text-right">
-                    <div class="w-like"><a href="https://quals.2020.hackasat.com/teams/965.html" target="_blank"><i class="icon ion-link"></i></a></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-md-4">
-            <div class="work-box">
-              <a href="https://www.credential.net/6d8f829a-9a91-47d6-9d18-714fa061aa88#gs.g2jfju" target="_blank" class="venobox">
-                <div class="work-img">
-                  <img src="assets/img/Work01.jpg" alt="CRTP" class="img-fluid" />
-                </div>
-              </a>
-              <div class="work-content">
-                <div class="row">
-                  <div class="col-sm-8">
-                    <h2 class="w-title">Certified Red Team Professional (CRTP)</h2>
-                    <div class="w-more"><span class="w-ctegory">Pentester Academy</span> / <span class="w-date">Nov 2022</span></div>
-                  </div>
-                  <div class="col-sm-4 text-right">
-                    <div class="w-like"><a href="https://www.credential.net/6d8f829a-9a91-47d6-9d18-714fa061aa88#gs.g2jfju" target="_blank"><span class="ion-ios-plus-outline"></span></a></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-md-4">
-            <div class="work-box">
-              <a href="https://drive.google.com/file/d/1WBC-FJT51VPOdaYpOC2NCguGOc5MMvpF/view" target="_blank" class="venobox">
-                <div class="work-img">
-                  <img src="assets/img/convert.png" alt="Practical Ethical Hacking" class="img-fluid" />
-                </div>
-              </a>
-              <div class="work-content">
-                <div class="row">
-                  <div class="col-sm-8">
-                    <h2 class="w-title">Practical Ethical Hacking</h2>
-                    <div class="w-more"><span class="w-ctegory">TCM Security</span> / <span class="w-date">Dec 2021</span></div>
-                  </div>
-                  <div class="col-sm-4 text-right">
-                    <div class="w-like"><a href="https://drive.google.com/file/d/1WBC-FJT51VPOdaYpOC2NCguGOc5MMvpF/view" target="_blank"><span class="ion-ios-plus-outline"></span></a></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-md-4">
-            <div class="work-box">
-              <a href="https://verified.elearnsecurity.com/certificates/7e4fd2df-ca0e-44e7-8f0c-32c8ec963b9a" target="_blank" class="venobox">
-                <div class="work-img">
-                  <img src="assets/img/eJPT.jpg" alt="eJPT" class="img-fluid" />
-                </div>
-              </a>
-              <div class="work-content">
-                <div class="row">
-                  <div class="col-sm-8">
-                    <h2 class="w-title">eJPT</h2>
-                    <div class="w-more"><span class="w-ctegory">eLearnSecurity</span> / <span class="w-date">Nov 2021</span></div>
-                  </div>
-                  <div class="col-sm-4 text-right">
-                    <div class="w-like"><a href="https://verified.elearnsecurity.com/certificates/7e4fd2df-ca0e-44e7-8f0c-32c8ec963b9a" target="_blank"><span class="ion-ios-plus-outline"></span></a></div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-    <!-- End Portfolio Section -->
-
-    <!-- ======= Public CVEs & Reports ======= -->
-    <section id="reports" class="about-mf sect-pt4 route">
-      <div class="container">
-        <div class="row">
-          <div class="col-sm-12">
-            <div class="box-shadow-full">
-              <div class="d-flex align-items-center mb-3">
-                <lord-icon src="https://cdn.lordicon.com//nocovwne.json" trigger="loop" colors="primary:#bdbbbb,secondary:#00ff64" style="width:80px;height:80px"></lord-icon>
-                <h3 class="title-left ml-2">Public CVEs & Research Reports</h3>
-              </div>
-              <div class="row">
-                <div class="col-md-7">
-                  <ul class="list-clean">
-                    <li>
-                      <strong>CVE‑2021‑29003</strong> <span class="badge-soft">RCE</span><br/>
-                      Genexis Platinum‑4410 Wireless Router — Remote Command Execution
-                      <div class="mt-1">
-                        <a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-29003" target="_blank"><i class="fas fa-external-link-alt"></i> MITRE</a> ·
-                        <a href="https://www.exploit-db.com/exploits/49764" target="_blank"><i class="fas fa-code"></i> Exploit‑DB (EDB‑49764)</a>
-                      </div>
-                    </li>
-                    <li>
-                      <strong>Halls of Fame & Acknowledgements</strong><br/>
-                      The Standard, Dell Technologies, Ibotta, (ISC)², BitDiscovery, BlueJeans — appreciated by LinkedIn, United Nations, Nokia
-                    </li>
-                  </ul>
-                </div>
-                <div class="col-md-5">
-                  <div class="box-shadow-full">
-                    <h5 class="mb-3">Selected Write‑ups</h5>
-                    <ul class="list-clean">
-                      <li>
-                        <a href="https://sharmajijvs.medium.com/how-i-got-my-first-cve-af2c3009e409" target="_blank">How I got my first CVE</a>
-                        <div class="small text-muted">CVE‑2021‑29003 — Apr 9, 2021</div>
-                      </li>
-                      <li>
-                        <a href="https://sharmajijvs.medium.com/home-made-rubber-ducky-alternative-f4d2db2f740b" target="_blank">Home‑made Rubber Ducky (Alternative)</a>
-                        <div class="small text-muted">Hardware — May 23, 2021</div>
-                      </li>
-                      <li>
-                        <a href="https://sharmajijvs.medium.com/xss-via-file-upload-a2bcc1e5d7f7/" target="_blank">XSS via File Upload</a>
-                        <div class="small text-muted">Bug Bounty — Dec 27, 2021</div>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- End Public CVEs & Reports -->
-
-    <!-- ======= Contact Section ======= -->
-    <section id="contact" class="paralax-mf footer-paralax bg-image sect-mt4 route" style="background-image: url(assets/img/overlay-bg.jpg)">
-      <div class="overlay-mf"></div>
-      <div class="container">
-        <div class="animate-icon text-center">
-          <lord-icon src="https://cdn.lordicon.com//zpxybbhl.json" trigger="loop" colors="primary:#bdbbbb,secondary:#00ff64" style="width:150px;height:150px"></lord-icon>
-        </div>
-        <div class="title-box text-center">
-          <h3 class="title-a">Get in Touch</h3>
-        </div>
-        <div class="contact-mf">
-          <div id="contact-card" class="box-shadow-full">
-            <div class="row">
-              <div class="col-md-6">
-                <div class="title-box-2">
-                  <h4 class="title-left">
-                    <img src="https://tryhackme-badges.s3.amazonaws.com/Sharmajijvs.png" alt="TryHackMe" style="max-width: 100%; height:auto;" />
-                    <img src="//www.hackthebox.eu/badge/image/326333" alt="Hack The Box" style="max-width: 100%; height:auto;" />
-                  </h4>
-                </div>
-                <div class="more-info">
-                  <ul class="list-ico">
-                    <li><span class="ion-ios-location"></span> Pune & Ahmednagar, Maharashtra, IN 414001</li>
-                    <li><span class="ion-ios-telephone"></span> +91 (702) 069 3812</li>
-                    <li><span class="ion-email"></span> daemon@duck.com</li>
-                  </ul>
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="socials">
-                  <ul>
-                    <li><a href="https://www.instagram.com/sharmaji_jvs" target="_blank"><span class="ico-circle"><i class="ion-social-instagram"></i></span></a></li>
-                    <li><a href="https://twitter.com/safe_mode_?s=09" target="_blank"><span class="ico-circle"><i class="ion-social-twitter"></i></span></a></li>
-                    <li><a href="https://www.linkedin.com/in/sharmajijvs/" target="_blank"><span class="ico-circle"><i class="icon ion-social-linkedin"></i></span></a></li>
-                    <li><a href="https://bugcrowd.com/Sharmaji_jvs" target="_blank"><span class="ico-circle"><i class="fas fa-shield-alt"></i></span></a></li>
-                  </ul>
-                  <div class="mt-3">
-                    <a class="coffee" href="https://www.buymeacoffee.com/jaysharma" target="_blank">
-                      <img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=jaysharma&button_colour=19e620&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=FFDD00" alt="Buy me a coffee" />
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- End Contact Section -->
-
-  </main>
-
-  <!-- ======= Footer ======= -->
-  <footer>
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-12">
-          <div class="copyright-box text-center">
-            <p class="copyright">&copy; <span id="year"></span> <strong>Jay Sharma</strong>. All Rights Reserved</p>
-            <div class="credits">Designed by <a href="https://jaysharma.tech" target="_blank">Jay Sharma <i class="fas fa-heartbeat"></i></a></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </footer>
-  <a href="#home" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
-
-  <!-- Vendor JS -->
-  <script src="assets/vendor/jquery/jquery.min.js"></script>
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/jquery.easing/jquery.easing.min.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
-  <script src="assets/vendor/waypoints/jquery.waypoints.min.js"></script>
-  <script src="assets/vendor/counterup/jquery.counterup.min.js"></script>
-  <script src="assets/vendor/owl.carousel/owl.carousel.min.js"></script>
-  <script src="assets/vendor/typed.js/typed.min.js"></script>
-  <script src="assets/vendor/venobox/venobox.min.js"></script>
-
-  <!-- Main JS + small enhancements -->
-  <script src="assets/js/main.js"></script>
+<body>
+  <canvas id="matrix"></canvas>
+  <header>
+    <h1>Jay Sharma — Security Engineer</h1>
+    <p>Red Teaming | Web App Security | CVE Research</p>
+  </header>
+  <section class="about">
+    <h2>About Me</h2>
+    <p>Security Engineer with 3.5+ years in Red Teaming, Web App Security, and vulnerability research. Discovered 11 CVEs, contributed to exploit DBs, and recognized by Dell, Standards, Ibotta, (ISC)², LinkedIn, UN, and more. Skilled in offensive security, detection engineering, automation, and public speaking.</p>
+  </section>
+  <section class="skills">
+    <h2>Skills</h2>
+    <div class="progress" style="--width:90%"><span></span></div>Red Team Tools & Methodologies
+    <div class="progress" style="--width:85%"><span></span></div>Web & API Security
+    <div class="progress" style="--width:80%"><span></span></div>Cloud Security (AWS, Azure)
+    <div class="progress" style="--width:75%"><span></span></div>Malware Analysis & Reverse Engineering
+  </section>
+  <section class="experience">
+    <h2>Experience</h2>
+    <h3>Application Security & Red Team Engineer — Qualys</h3>
+    <p>Mar 2023 – Dec 2024 | Pune, India</p>
+    <ul>
+      <li>Performed SCA, SAST, DAST, AD PenTesting, and ESAM scans</li>
+      <li>Built attack scenarios, evaluated EDR/EPP, automated security ops</li>
+    </ul>
+    <h3>Security Operations Engineer (Purple Team) — Qualys</h3>
+    <p>Mar 2022 – Mar 2023</p>
+    <ul>
+      <li>Led Red Team activities using Mythic, Caldera, Cobalt Strike</li>
+      <li>Threat hunting, SIEM tuning, malware analysis</li>
+    </ul>
+    <h3>Security Analyst (Triage) — HackerOne</h3>
+    <ul>
+      <li>Validated vulnerabilities, created triage playbooks, mentored triagers</li>
+    </ul>
+  </section>
+  <section class="certifications">
+    <h2>Certifications</h2>
+    <ul>
+      <li><a href="https://verified.elearnsecurity.com/certificates/7e4fd2df-ca0e-44e7-8f0c-32c8ec963b9a">eWPTX v2</a></li>
+      <li><a href="https://www.credential.net/783a72e2-3179-480d-92ab-5a2f7103e999#acc.KtIREb9j">CRTE</a></li>
+      <li>CRTP, MCRTA, CRTA, eJPT, MAPT, APISec, PEH</li>
+    </ul>
+  </section>
+  <section class="counters">
+    <h2>Stats</h2>
+    <div class="counter">4+<br>Years Experience</div>
+    <div class="counter">11<br>CVEs</div>
+    <div class="counter">10+<br>Hall of Fame</div>
+    <div class="counter">50+<br>Appreciations</div>
+  </section>
+  <section class="cves">
+    <h2>Public CVEs & Research</h2>
+    <ul>
+      <li><a href="https://nvd.nist.gov/vuln/detail/CVE-2023-38311">Webmin CVEs (2023-38311 to 2023-38303)</a></li>
+      <li><a href="https://nvd.nist.gov/vuln/detail/CVE-2023-4951">Green Rocket Security CVE-2023-4951</a></li>
+      <li><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-29003">Genexis Platinum 4410 CVE-2021-29003</a></li>
+    </ul>
+  </section>
+  <section class="contact">
+    <h2>Contact</h2>
+    <p>> <a href="mailto:Sharmajijvs@gmail.com">Sharmajijvs@gmail.com</a></p>
+    <p>> <a href="https://www.linkedin.com/in/sharmajijvs/">LinkedIn</a> | <a href="https://github.com/jaysharma786">GitHub</a> | <a href="https://sharmajijvs.medium.com/">Medium</a></p>
+  </section>
   <script>
-    // Year in footer
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    // Typed text
-    if ($('.text-slider').length == 1) {
-      var typed_strings = $('.text-slider-items').text();
-      var typed = new Typed('.text-slider', {
-        strings: typed_strings.split(','),
-        typeSpeed: 60,
-        loop: true,
-        backDelay: 1500,
-        backSpeed: 30
-      });
-    }
-
-    // Venobox
-    $(document).ready(function(){ $('.venobox').venobox(); });
-
-    // CounterUp (with graceful fallback)
-    $(function(){
-      const $counters = $('.counter');
-      if ($counters.length) {
-        $counters.each(function(){
-          const $t = $(this);
-          const target = parseInt($t.data('target')) || 0;
-          $({countNum: 0}).animate({countNum: target}, {
-            duration: 1500,
-            easing: 'swing',
-            step: function() { $t.text(Math.ceil(this.countNum)); },
-            complete: function() { $t.text(target); }
-          });
-        });
+    // Matrix background effect
+    const canvas = document.getElementById('matrix');
+    const ctx = canvas.getContext('2d');
+    canvas.height = window.innerHeight;
+    canvas.width = window.innerWidth;
+    const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%^&*()*&^%';
+    const fontSize = 14;
+    const columns = canvas.width / fontSize;
+    const drops = Array(Math.floor(columns)).fill(1);
+    function draw() {
+      ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = '#0F0';
+      ctx.font = fontSize + 'px monospace';
+      for (let i = 0; i < drops.length; i++) {
+        const text = letters.charAt(Math.floor(Math.random() * letters.length));
+        ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+        if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) drops[i] = 0;
+        drops[i]++;
       }
-    });
+    }
+    setInterval(draw, 33);
   </script>
-
-
 </body>
 </html>
