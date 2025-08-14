@@ -1,124 +1,351 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Jay Sharma | Security Engineer</title>
-  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;700&display=swap" rel="stylesheet">
-  <style>
-    * {margin:0;padding:0;box-sizing:border-box;}
-    body {
-      font-family: 'Fira Code', monospace;
-      background: black;
-      color: #0f0;
-      overflow-x: hidden;
-    }
-    header {
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      position: relative;
-    }
-    header h1 {
-      font-size: 3rem;
-      text-shadow: 0 0 5px #0f0, 0 0 20px #0f0;
-      animation: typewriter 4s steps(30) 1s forwards;
-      white-space: nowrap;
-      overflow: hidden;
-      border-right: 3px solid #0f0;
-    }
-    header p {font-size:1.5rem;color:#0ff;text-shadow:0 0 5px #0ff;}
-    @keyframes typewriter {from {width:0;} to {width:100%;}}
-    section {padding:60px 20px;max-width:1200px;margin:auto;}
-    h2 {font-size:2rem;margin-bottom:20px;text-shadow:0 0 5px #0f0;border-bottom:2px solid #0f0;display:inline-block;}
-    .subsection-title {color:#ff0;text-shadow:0 0 5px #ff0;}
-    .skills .progress {background:rgba(0,255,0,0.1);border:1px solid #0f0;height:20px;width:100%;margin-bottom:15px;}
-    .skills .progress span {display:block;height:100%;background:#0f0;animation:grow 2s ease-out;}
-    @keyframes grow {from{width:0;} to{width:var(--width);}}
-    .counter {display:inline-block;margin:20px;font-size:1.5rem;text-align:center;color:#ff0;text-shadow:0 0 5px #ff0;}
-    a {color:#0ff;text-decoration:none;} a:hover{text-shadow:0 0 5px #0ff;}
-    iframe {max-width:100%;border:2px solid #0f0;box-shadow:0 0 15px #0f0;}
-    canvas#matrix {position:fixed;top:0;left:0;z-index:-1;}
-  </style>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Jay Sharma — Security Engineer</title>
+<meta name="description" content="Jay Sharma — Red Teaming, Web App Security, CVE Research" />
+
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --bg:#070b08;
+    --panel:#0b110d;
+    --line:#0f1712;
+    --text:#e5ffe9;
+    --muted:#9ae6b4;
+    --neon:#00ff6a;
+    --neon-2:#00e5ff;
+    --neon-3:#ffd93d;
+    --neon-4:#7CFF00;
+    --shadow: 0 0 22px rgba(0,255,106,.25), inset 0 0 18px rgba(0,255,106,.08);
+  }
+
+  *{box-sizing:border-box}
+  html,body{height:100%}
+  body{
+    margin:0;
+    background: radial-gradient(1200px 800px at 20% -10%, rgba(0,255,106,.08), transparent 60%),
+                radial-gradient(1200px 800px at 120% 10%, rgba(0,229,255,.06), transparent 60%),
+                var(--bg);
+    color:var(--text);
+    font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
+    line-height:1.6;
+  }
+
+  /* Matrix canvas behind everything */
+  #matrix{
+    position:fixed; inset:0; z-index:-1; opacity:.14; filter:contrast(1.1);
+  }
+
+  a{color:var(--neon); text-decoration:none}
+  a:hover{color:var(--neon-2); text-shadow:0 0 10px rgba(0,229,255,.5)}
+
+  .wrap{max-width:1100px; margin:0 auto; padding:64px 20px 96px}
+
+  header{
+    padding:64px 0 56px;
+    border-bottom:1px solid var(--line);
+    position:relative;
+  }
+  .brand{
+    font-family:"Share Tech Mono", monospace;
+    font-size: clamp(28px, 5vw, 52px);
+    letter-spacing:.5px;
+    color:var(--text);
+    text-shadow:0 0 14px rgba(0,255,106,.45), 0 0 35px rgba(0,229,255,.25);
+    margin:0 0 10px;
+  }
+  .tag{
+    font-family:"Share Tech Mono", monospace;
+    color:var(--muted);
+    font-size:clamp(14px,2.4vw,18px);
+  }
+  .nav-social{
+    margin-top:18px; display:flex; gap:10px; flex-wrap:wrap;
+  }
+  .chip{
+    border:1px solid var(--line);
+    background:linear-gradient(180deg, rgba(0,255,106,.08), rgba(0,255,106,.03));
+    color:var(--text); padding:8px 12px; border-radius:999px;
+    font-family:"Share Tech Mono", monospace; font-size:13px;
+    box-shadow:var(--shadow);
+  }
+  .chip:hover{border-color:rgba(0,229,255,.35)}
+
+  .grid{display:grid; gap:28px}
+  @media (min-width:900px){ .grid-2{grid-template-columns:1.1fr .9fr} }
+
+  section{padding:56px 0; border-bottom:1px solid var(--line)}
+  h2{
+    font-family:"Share Tech Mono", monospace;
+    margin:0 0 18px; font-size:28px; letter-spacing:.4px;
+    color:var(--neon); text-shadow: 0 0 16px rgba(0,255,106,.3);
+  }
+  .card{
+    background:linear-gradient(180deg, rgba(10,16,12,.86), rgba(7,11,8,.86));
+    border:1px solid var(--line); border-radius:18px; padding:22px;
+    box-shadow:var(--shadow);
+  }
+  .mono{font-family:"Share Tech Mono", monospace}
+
+  .about p{margin:.4rem 0}
+  .kbr{display:inline-block; padding:2px 8px; border-radius:6px; border:1px solid var(--line);
+       background:rgba(0,229,255,.06); color:#bffcff; font-family:"Share Tech Mono", monospace; font-size:12px}
+
+  /* Skills */
+  .skill{margin:16px 0 22px}
+  .skill .label{display:flex; justify-content:space-between; font-family:"Share Tech Mono", monospace}
+  .bar{height:12px; background:#0a130f; border:1px solid #142019; border-radius:999px; overflow:hidden}
+  .bar > span{display:block; height:100%;
+     background: linear-gradient(90deg, var(--neon), var(--neon-2));
+     box-shadow: 0 0 16px rgba(0,229,255,.25);
+  }
+  .bar.t2 > span{background:linear-gradient(90deg, #7CFF00, #00ff6a)}
+  .bar.t3 > span{background:linear-gradient(90deg, #ffd93d, #7CFF00)}
+  .bar.t4 > span{background:linear-gradient(90deg, #00e5ff, #ffd93d)}
+
+  /* Timeline */
+  .timeline{display:grid; gap:14px; margin-top:10px}
+  .item{position:relative; padding-left:18px}
+  .item:before{
+    content:""; position:absolute; left:4px; top:.55rem; width:6px; height:6px; border-radius:50%;
+    background:var(--neon-2); box-shadow:0 0 10px rgba(0,229,255,.8)
+  }
+  .role{font-weight:700}
+  .meta{color:var(--muted); font-size:14px}
+
+  /* CVEs list */
+  .cve-list{columns:1; column-gap:22px}
+  @media (min-width:780px){ .cve-list{columns:2} }
+  .cve{break-inside:avoid; margin:0 0 12px; padding:14px; border-radius:12px; border:1px solid var(--line);
+       background:linear-gradient(180deg, rgba(0,229,255,.05), rgba(0,255,106,.05))}
+  .cve .id{color:var(--neon-3); font-family:"Share Tech Mono", monospace; font-size:14px}
+  .cve p{margin:.35rem 0}
+
+  /* Stats */
+  .stats{display:grid; grid-template-columns:repeat(2,1fr); gap:18px}
+  @media (min-width:760px){ .stats{grid-template-columns:repeat(4,1fr)} }
+  .stat{
+    text-align:center; padding:18px 10px; border-radius:14px; border:1px solid var(--line);
+    background:linear-gradient(180deg, rgba(124,255,0,.08), rgba(0,229,255,.05));
+    box-shadow:var(--shadow)
+  }
+  .stat .num{font-family:"Share Tech Mono", monospace; font-size:32px; color:var(--neon-3)}
+  .stat .lbl{color:var(--muted); font-size:12px}
+
+  /* Buttons grid (cert links etc.) */
+  .btns{display:flex; flex-wrap:wrap; gap:10px}
+  .btn{
+    padding:10px 14px; border-radius:10px; border:1px solid var(--line);
+    background:linear-gradient(180deg, rgba(0,255,106,.12), rgba(0,255,106,.04));
+    color:var(--text); font-family:"Share Tech Mono", monospace; font-size:13px
+  }
+  .btn:hover{border-color:rgba(255,217,61,.6); color:var(--neon-3)}
+
+  footer{padding:46px 0 80px; color:var(--muted)}
+</style>
 </head>
 <body>
-  <canvas id="matrix"></canvas>
+
+<canvas id="matrix"></canvas>
+
+<div class="wrap">
   <header>
-    <h1>Jay Sharma — Security Engineer</h1>
-    <p>Red Teaming | Web App Security | CVE Research</p>
+    <h1 class="brand">Jay Sharma — Security Engineer</h1>
+    <div class="tag mono">Red Teaming ▌ Web App Security ▌ CVE Research</div>
+    <div class="nav-social">
+      <a class="chip" href="https://www.linkedin.com/in/sharmajijvs/" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="chip" href="https://github.com/jaysharma786" target="_blank" rel="noopener">GitHub</a>
+      <a class="chip" href="https://sharmajijvs.medium.com/" target="_blank" rel="noopener">Medium</a>
+      <a class="chip" href="mailto:Sharmajijvs@gmail.com">Sharmajijvs@gmail.com</a>
+    </div>
   </header>
-  <section class="about">
+
+  <!-- About -->
+  <section id="about" class="about">
     <h2>About Me</h2>
-    <p>Hello! I'm Jay Sharma, an IT Engineer with Honors in Cyber Security. With 3.5+ years of experience in offensive security, red teaming, and vulnerability research, I have reported 11 CVEs, contributed to public exploits, and earned 50+ appreciations with 10+ Hall of Fame entries. Recognized by Dell, Standards, Ibotta, (ISC)², LinkedIn, the United Nations, and more.</p>
-    <h3 class="subsection-title">Current Role</h3>
-    <p>Intake Analyst at HackerOne — triaging vulnerability reports, verifying impact, and ensuring secure, timely delivery to stakeholders.</p>
-    <h3 class="subsection-title">Previous Roles</h3>
-    <p>Application Security & Red Team Engineer at Qualys — vulnerability assessments, compliance audits, red team simulations, and threat detection strategies.<br>
-    Security Operations Engineer (Purple Team) at Qualys — red team ops, malware analysis, SIEM tuning, and detection engineering.</p>
-    <h3 class="subsection-title">Community Contributions</h3>
-    <p>Speaker on "Red Team Methodology" — <a href="https://youtu.be/uLLLu6IY1Vo?si=YvWstdmwujIk1QQL" target="_blank">Watch Talk</a></p>
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/uLLLu6IY1Vo" title="Red Team Methodology Talk" frameborder="0" allowfullscreen></iframe>
+    <div class="grid grid-2">
+      <div class="card">
+        <p>Hello! I’m Jay Sharma, an IT Engineer with <b>3.5+ years</b> in offensive security, red teaming, web application security, and vulnerability research. I’ve reported <b>11 CVEs</b>, contributed to public exploit DBs, and earned <b>50+ appreciations</b> with <b>10+ Hall of Fame</b> mentions. Recognitions include Dell, Standards, Ibotta, (ISC)<span class="mono">²</span>, LinkedIn, the UN, and others.</p>
+        <p>My work spans web apps, APIs, cloud platforms, and internal infrastructure—mixing <span class="kbr">attack simulation</span>, <span class="kbr">detection engineering</span>, and <span class="kbr">security automation</span>. I love turning complex threats into clear, prioritized fixes and building repeatable playbooks for teams.</p>
+        <p class="mono">Community: speaker and contributor—see my talk below on <b>Red Team Methodology</b> and <b>MITRE ATT&CK</b>.</p>
+      </div>
+      <div class="card">
+        <div style="position:relative;padding-top:56.25%;border-radius:12px;overflow:hidden;border:1px solid var(--line);box-shadow:var(--shadow)">
+          <iframe src="https://www.youtube-nocookie.com/embed/uLLLu6IY1Vo" title="Red Team Methodology — Jay Sharma"
+            style="position:absolute;inset:0;width:100%;height:100%;border:0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <div style="margin-top:10px" class="mono">Watch: “Red Team Approach & Methodology”</div>
+      </div>
+    </div>
   </section>
-  <section class="skills">
-    <h2>Skills</h2>
-    <div class="progress" style="--width:90%"><span></span></div>Red Team Tools & Methodologies
-    <div class="progress" style="--width:85%"><span></span></div>Web & API Security
-    <div class="progress" style="--width:80%"><span></span></div>Cloud Security (AWS, Azure)
-    <div class="progress" style="--width:75%"><span></span></div>Malware Analysis & Reverse Engineering
+
+  <!-- Experience -->
+  <section id="exp">
+    <h2>Experience</h2>
+    <div class="grid grid-2">
+      <div class="card">
+        <div class="timeline">
+          <div class="item">
+            <div class="role">Security Analyst, Intake / Triage — <b>HackerOne</b></div>
+            <div class="meta">Dec 2024 — Present · Pune</div>
+            <div class="mono">Vuln report intake & validation, CVSS 4.0/3.1 alignment, process playbooks, mentoring new triagers, SLA-driven comms with researchers.</div>
+          </div>
+          <div class="item">
+            <div class="role">AppSec & Red Team Engineer — <b>Qualys</b></div>
+            <div class="meta">Mar 2023 — Dec 2024 · Pune</div>
+            <div class="mono">SAST/DAST/SCA, AD pentest, ESAM, detection evals, retests, risk assessments, QID creation, CI/CD automation, dev guidance.</div>
+          </div>
+          <div class="item">
+            <div class="role">Security Operations Engineer (Purple Team) — <b>Qualys</b></div>
+            <div class="meta">Mar 2022 — Mar 2023 · Pune</div>
+            <div class="mono">Threat emulation with Mythic/Caldera/CS/Covenant/Atomic Red Team, SIEM tuning, threat hunting, malware analysis, incident response, cloud security (AWS/Azure).</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Skills -->
+      <div class="card">
+        <div class="skill">
+          <div class="label"><span>Red Team Tools & Methodology</span><span class="mono">90%</span></div>
+          <div class="bar"><span style="width:90%"></span></div>
+        </div>
+        <div class="skill">
+          <div class="label"><span>Web & API Security</span><span class="mono">85%</span></div>
+          <div class="bar t2"><span style="width:85%"></span></div>
+        </div>
+        <div class="skill">
+          <div class="label"><span>Cloud Security (AWS · Azure)</span><span class="mono">75%</span></div>
+          <div class="bar t3"><span style="width:75%"></span></div>
+        </div>
+        <div class="skill">
+          <div class="label"><span>Malware Analysis & Reverse Engineering</span><span class="mono">65%</span></div>
+          <div class="bar t4"><span style="width:65%"></span></div>
+        </div>
+      </div>
+    </div>
   </section>
-  <section class="cves">
+
+  <!-- Certifications -->
+  <section id="certs">
+    <h2>Certifications (Verify)</h2>
+    <div class="card">
+      <div class="btns">
+        <!-- Provider/verification links from resume -->
+        <a class="btn" href="https://certs.ine.com/9bbf4816-6220-418b-b66e-85510ac9ac1b#gs.g8zf0w" target="_blank" rel="noopener">eWPTX v2 — INE Verify</a>
+        <a class="btn" href="https://www.credential.net/profile/jay2335/wallet" target="_blank" rel="noopener">Credential.net Wallet</a>
+        <a class="btn" href="https://www.credential.net/783a72e2-3179-480d-92ab-5a2f7103e999#acc.KtIREb9j" target="_blank" rel="noopener">Altered Security Cert (Verify)</a>
+        <a class="btn" href="https://verified.elearnsecurity.com/certificates/7e4fd2df-ca0e-44e7-8f0c-32c8ec963b9a" target="_blank" rel="noopener">eJPT — eLS Verify</a>
+        <a class="btn" href="https://www.credly.com/badges/6fa8099f-4963-435b-aec6-6f015e95c750/public_url" target="_blank" rel="noopener">Credly Badge</a>
+        <a class="btn" href="https://drive.google.com/file/d/1WBC-FJT51VPOdaYpOC2NCguGOc5MMvpF/view?usp=sharing" target="_blank" rel="noopener">TCM — PEH (Doc)</a>
+        <a class="btn" href="https://drive.google.com/file/d/1V16O9mvqPr7PBTsc-paQ9EOTTXaQ8Q2o/view?usp=sharing" target="_blank" rel="noopener">Certificate (Doc)</a>
+        <a class="btn" href="https://drive.google.com/file/d/1sCWHQI8zl2kSxQWkK9OqqGu1ql5FOerO/view" target="_blank" rel="noopener">Certificate (Doc)</a>
+      </div>
+      <p class="mono" style="margin-top:10px; color:var(--muted)">Titles covered: eWPTXv2, CRTE, CRTP, MCRTA, CRTA, eJPT, MAPT, APIsec, Practical Ethical Hacking.</p>
+    </div>
+  </section>
+
+  <!-- CVEs -->
+  <section id="cves">
     <h2>Public CVEs & Research</h2>
-    <ul>
-      <li><a href="https://nvd.nist.gov/vuln/detail/CVE-2023-4951">CVE-2023-4951</a> — Green Rocket Security, Auth Bypass</li>
-      <li><a href="https://nvd.nist.gov/vuln/detail/CVE-2023-38303">CVE-2023-38303</a> — Webmin XSS</li>
-      <li><a href="https://nvd.nist.gov/vuln/detail/CVE-2023-38304">CVE-2023-38304</a> — Webmin XSS</li>
-      <li><a href="https://nvd.nist.gov/vuln/detail/CVE-2023-38305">CVE-2023-38305</a> — Webmin XSS</li>
-      <li><a href="https://nvd.nist.gov/vuln/detail/CVE-2023-38306">CVE-2023-38306</a> — Webmin XSS</li>
-      <li><a href="https://nvd.nist.gov/vuln/detail/CVE-2023-38307">CVE-2023-38307</a> — Webmin XSS</li>
-      <li><a href="https://nvd.nist.gov/vuln/detail/CVE-2023-38308">CVE-2023-38308</a> — Webmin XSS</li>
-      <li><a href="https://nvd.nist.gov/vuln/detail/CVE-2023-38309">CVE-2023-38309</a> — Webmin XSS</li>
-      <li><a href="https://nvd.nist.gov/vuln/detail/CVE-2023-38310">CVE-2023-38310</a> — Webmin XSS</li>
-      <li><a href="https://nvd.nist.gov/vuln/detail/CVE-2023-38311">CVE-2023-38311</a> — Webmin XSS</li>
-      <li><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-29003">CVE-2021-29003</a> — Genexis Router RCE</li>
-    </ul>
+    <div class="cve-list">
+      <!-- Webmin set -->
+      <article class="cve">
+        <div class="id">CVE-2023-38303 → CVE-2023-38311 (Webmin, multiple XSS)</div>
+        <p>Part of a Qualys Research Team disclosure of multiple cross-site scripting issues across Webmin modules.</p>
+        <p>
+          <a href="https://threatprotect.qualys.com/2023/08/01/qualys-research-team-discovered-multiple-cross-site-scripting-vulnerabilities-in-webmin/" target="_blank" rel="noopener">Qualys write-up</a> ·
+          <a href="https://nvd.nist.gov/vuln/detail/CVE-2023-38303" target="_blank" rel="noopener">38303</a> ·
+          <a href="https://nvd.nist.gov/vuln/detail/CVE-2023-38304" target="_blank" rel="noopener">38304</a> ·
+          <a href="https://nvd.nist.gov/vuln/detail/CVE-2023-38305" target="_blank" rel="noopener">38305</a> ·
+          <a href="https://nvd.nist.gov/vuln/detail/CVE-2023-38306" target="_blank" rel="noopener">38306</a> ·
+          <a href="https://nvd.nist.gov/vuln/detail/CVE-2023-38307" target="_blank" rel="noopener">38307</a> ·
+          <a href="https://nvd.nist.gov/vuln/detail/CVE-2023-38308" target="_blank" rel="noopener">38308</a> ·
+          <a href="https://nvd.nist.gov/vuln/detail/CVE-2023-38309" target="_blank" rel="noopener">38309</a> ·
+          <a href="https://nvd.nist.gov/vuln/detail/CVE-2023-38310" target="_blank" rel="noopener">38310</a> ·
+          <a href="https://nvd.nist.gov/vuln/detail/CVE-2023-38311" target="_blank" rel="noopener">38311</a>
+        </p>
+      </article>
+
+      <article class="cve">
+        <div class="id">CVE-2023-4951 — Green Rocket Security (Auth Bypass)</div>
+        <p>Authentication bypass that could allow unauthorized access to restricted functionality.</p>
+        <p><a href="https://nvd.nist.gov/vuln/detail/CVE-2023-4951" target="_blank" rel="noopener">NVD entry</a></p>
+      </article>
+
+      <article class="cve">
+        <div class="id">CVE-2021-29003 — Genexis PLATINUM-4410 (RCE)</div>
+        <p>Remote Code Execution vulnerability in a home router model; my first CVE.</p>
+        <p><a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-29003" target="_blank" rel="noopener">MITRE entry</a></p>
+      </article>
+    </div>
   </section>
-  <section class="counters">
+
+  <!-- Stats -->
+  <section id="stats">
     <h2>Stats</h2>
-    <div class="counter">4+<br>Years Experience</div>
-    <div class="counter">11<br>CVEs</div>
-    <div class="counter">10+<br>Hall of Fame</div>
-    <div class="counter">50+<br>Appreciations</div>
+    <div class="stats">
+      <div class="stat">
+        <div class="num">3.5+</div>
+        <div class="lbl">Years Experience</div>
+      </div>
+      <div class="stat">
+        <div class="num">11</div>
+        <div class="lbl">CVEs</div>
+      </div>
+      <div class="stat">
+        <div class="num">10+</div>
+        <div class="lbl">Hall of Fame</div>
+      </div>
+      <div class="stat">
+        <div class="num">50+</div>
+        <div class="lbl">Appreciations</div>
+      </div>
+    </div>
   </section>
-  <section class="contact">
+
+  <!-- Contact -->
+  <section id="contact">
     <h2>Contact</h2>
-    <p>> <a href="mailto:Sharmajijvs@gmail.com">Sharmajijvs@gmail.com</a></p>
-    <p>> <a href="https://www.linkedin.com/in/sharmajijvs/">LinkedIn</a> | <a href="https://github.com/jaysharma786">GitHub</a> | <a href="https://sharmajijvs.medium.com/">Medium</a></p>
+    <div class="card">
+      <div class="btns">
+        <a class="btn" href="mailto:Sharmajijvs@gmail.com">Sharmajijvs@gmail.com</a>
+        <a class="btn" href="https://www.linkedin.com/in/sharmajijvs/" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="btn" href="https://github.com/jaysharma786" target="_blank" rel="noopener">GitHub</a>
+        <a class="btn" href="https://sharmajijvs.medium.com/" target="_blank" rel="noopener">Medium</a>
+      </div>
+    </div>
   </section>
-  <script>
-    const canvas = document.getElementById('matrix');
-    const ctx = canvas.getContext('2d');
-    canvas.height = window.innerHeight;
-    canvas.width = window.innerWidth;
-    const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%^&*()*&^%';
-    const fontSize = 14;
-    const columns = canvas.width / fontSize;
-    const drops = Array(Math.floor(columns)).fill(1);
-    function draw() {
-      ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
-      ctx.fillStyle = '#0F0';
-      ctx.font = fontSize + 'px monospace';
-      for (let i = 0; i < drops.length; i++) {
-        const text = letters.charAt(Math.floor(Math.random() * letters.length));
-        ctx.fillText(text, i * fontSize, drops[i] * fontSize);
-        if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) drops[i] = 0;
-        drops[i]++;
-      }
-    }
-    setInterval(draw, 33);
-  </script>
+
+  <footer>
+    <div class="mono">© Jay Sharma. Built with a classic hacker vibe — neon, matrix, and clean grid.</div>
+  </footer>
+</div>
+
+<script>
+/* Minimal “Matrix rain” canvas */
+const c=document.getElementById('matrix'),x=c.getContext('2d');
+let w,h,cols,ypos,chars='アカサタナハマヤラワ0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ$#&*+-/<>';
+function resize(){
+  w=c.width=window.innerWidth; h=c.height=window.innerHeight;
+  cols=Math.floor(w/18); ypos=Array(cols).fill(0);
+}
+window.addEventListener('resize',resize); resize();
+function draw(){
+  x.fillStyle='rgba(7,11,8,0.14)'; x.fillRect(0,0,w,h);
+  x.fillStyle='#00ff6a';
+  x.font='16px "Share Tech Mono", monospace';
+  for(let i=0;i<ypos.length;i++){
+    const text=chars[Math.floor(Math.random()*chars.length)];
+    x.fillText(text,i*18,ypos[i]*18);
+    if(ypos[i]*18>h && Math.random()>0.975) ypos[i]=0; else ypos[i]++;
+  }
+  requestAnimationFrame(draw);
+}
+draw();
+</script>
 </body>
 </html>
